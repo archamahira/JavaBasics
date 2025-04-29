@@ -1,27 +1,35 @@
 package com.training.java.basics.assignments;
 
-/*
- * remove a specific element from an array
- * */
+import java.util.Scanner;
+// remove a specific element from an array
+
+
 public class Q12RemoveElement {
 
 	public static void main(String[] args) {
-		int arr[] = {5, 8, 3, 0, 7};
-		
-		int value = 0;
-		
-		int index = -1;
-		
-		for(int i =0; i< arr.length; i++) {
-			if(arr[i] == value) {
-				index = i;
-			}
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int size = scanner.nextInt();
+		int[] arr = new int[size];
+		System.out.println("Enter the elements");
+		for(int i =0; i<arr.length; i++) {
+			arr[i] = scanner.nextInt();
 		}
 		
-		if (index != -1) {
-			System.out.println("Index of " + value + " is " + index);
-		}else
-		System.out.println("Array does not contain the number: " + value); 
+		System.out.println("Enter the index");
+		int index = scanner.nextInt();
+		
+		for(int i = index; i<arr.length-1; i++) {
+			arr[i] = arr[i+1];
+		}
+		
+		// print
+		System.out.println("new array");
+		for(int i =0; i<arr.length -1; i++) {
+			System.out.print( +arr[i] + " ");
+		}
+		
+		scanner.close();
 
 	}
 
